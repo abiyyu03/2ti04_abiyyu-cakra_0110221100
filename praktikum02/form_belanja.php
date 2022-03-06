@@ -26,9 +26,9 @@
                             <div class="form-group row">
                                 <label for="produk" class="col-4 form-label">Pilih Produk</label> 
                                 <div class="col-8">
-                                    <input type="checkbox" class="mx-2" name="produk[]" value="TV"> TV<br>    
-                                    <input type="checkbox" class="mx-2" name="produk[]" value="KULKAS"> KULKAS<br>
-                                    <input type="checkbox" class="mx-2" name="produk[]" value="MESIN CUCI"> MESIN CUCI
+                                    <input type="radio" class="mx-2" name="produk" value="TV"> TV<br>    
+                                    <input type="radio" class="mx-2" name="produk" value="KULKAS"> KULKAS<br>
+                                    <input type="radio" class="mx-2" name="produk" value="MESIN CUCI"> MESIN CUCI
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -65,15 +65,30 @@
             </div>
         </div>
         <?php
-            @$customer = $_POST['customer'];
-            @$produk = $_POST['produk'];
-            @$jumlah = $_POST['jumlah'];                    
+            $customer = $_POST['customer'];
+            $produk = $_POST['produk'];
+            $jumlah_produk = $_POST['jumlah'];   
+            
+            $harga_produk = 0;
+            //cek, produk manakah yang dipilih
+            if($produk == 'TV'){
+                $harga_produk = 4200000;
+            }elseif($produk == 'KULKAS'){
+                $harga_produk = 3100000;
+            } else {
+                $harga_produk = 3800000;
+            }
+            
+            //menghitung total
+            $total = $harga_produk * $jumlah_produk;
         ?>
         <div class="card shadow mt-4">
             <div class="card-body">
                 <p>Customer : <?= $customer; ?></p>
-                <p>Produk : <?php foreach ($produk as $p) { echo '<br> - '.$p; } ?></p>
-                <p>Jumlah Produk : <?= $jumlah; ?></p>
+                <p>Produk : <?= $produk; ?></p>
+                <p>Jumlah Produk : <?= $jumlah_produk; ?></p>
+                <p>Harga Produk : <?= $harga_produk; ?></p>
+                <p>Total : <?= $total; ?></p>
             </div>
         </div>
     </div>
