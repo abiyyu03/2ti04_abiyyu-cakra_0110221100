@@ -5,31 +5,77 @@ $nilai_uts = $_POST['nilai_uts'];
 $nilai_uas = $_POST['nilai_uas'];
 $nilai_tugas = $_POST['nilai_tugas'];
 
-function nilai()
+$nilai = ($nilai_uts+$nilai_uas+$nilai_tugas)/3;
+
+function grade()
 {
     //scope
-    global $nilai_uts;
-    global $nilai_uas;
-    global $nilai_tugas;
+    global $nilai_uts, $nilai_uas, $nilai_tugas, $nilai;
 
-    $nilai = ($nilai_uts+$nilai_uas+$nilai_tugas)/3;
     if ($nilai < 36 && $nilai >= 0) {
-        return 'E';
+        $grade = 'E';
+        return $grade;
     } elseif($nilai >= 36 && $nilai <= 55){
-        return 'D';
+        $grade = 'D';
+        return $grade;
     }  elseif($nilai >= 56 && $nilai <= 69) {
-        return 'C';
+        $grade = 'C';
+        return $grade;
     } elseif ($nilai >= 70 && $nilai <= 84) {
-        return 'B';
+        $grade = 'B';
+        return $grade;
     } elseif ($nilai >= 85 && $nilai <= 100) {
-        return 'A';
+        $grade = 'A';
+        return $grade;
     } else {
-        return 'I';
+        $grade = 'I';
+        return $grade;
+    }
+}
+function status() 
+{
+    //scope
+    global $nilai_uts, $nilai_uas, $nilai_tugas,$nilai;
+
+    if($nilai > 55){
+        return 'Lulus';
+    } else {
+        return 'Tidak Lulus';
+    }
+
+}
+function predikat() {
+    global $nilai_uts, $nilai_uas, $nilai_tugas,$nilai;
+    $grade = grade();
+
+    switch ($grade) {
+        case 'E':
+            return 'Sangat Kurang';
+            break;
+        case 'D':
+            return 'Kurang';
+            break;
+        
+        case 'C':
+            return 'Cukup';
+            break;
+        case 'B':
+            return 'Memuaskan';
+            break;
+        case 'A':
+            return 'Sangat Memuaskan';
+            break;
+        
+        default:
+            return 'Tidak Ada';
+            break;
     }
 }
 //check if button is pressed
 if (isset($_POST['submit'])) {
-    nilai();
+    grade();
+    status();
+    predikat();
 }
 // if(array_key_exists('submit',$_POST)) 
 // {
@@ -42,4 +88,6 @@ if (isset($_POST['submit'])) {
 <p>Nilai UTS : <?= $nilai_uts ?></p>
 <p>Nilai UAS : <?= $nilai_uas ?></p>
 <p>Nilai Tugas/Praktikum : <?= $nilai_tugas ?></p>
-<p>Grade : <?= nilai(); ?></p>
+<p>Grade : <?= grade(); ?></p>
+<p>Status : <?= status(); ?></p>
+<p>Predikat : <?= predikat(); ?></p>
