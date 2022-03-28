@@ -18,14 +18,14 @@ class Sirup extends Dispenser
 
     function volumeSetelahDijual()
     {
-        $this->volume = $this->volume - $this->volumeGelas;
-        return $this->volume;
+        return $this->volume = $this->volume - $this->volumeGelas;
     }
 
     function cetak()
     {
-        echo 'Kamu beli Sirup '.$this->namaMinuman.' yang harganya '.$this->hargaSegelas."\n";
-        echo 'Volume Dispenser setelah dibeli : '.$this->volumeSetelahDijual()."\n";
+        echo 'Kamu beli Sirup '.$this->namaMinuman.' yang harganya '.$this->hargaSegelas."<br>";
+        echo 'Volume asli dispenser sirup adalah '.$this->volume."<br>";
+        echo 'Volume Dispenser setelah dibeli : '.$this->volumeSetelahDijual()."<br>";
         echo 'Sisa uang mu adalah : '.$this->bayar(2000);
     }
 }
