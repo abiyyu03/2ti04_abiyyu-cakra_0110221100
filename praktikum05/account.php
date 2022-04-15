@@ -20,10 +20,7 @@ class Account
 
     function cetak()
     {
-        echo '<h2>Nomor Rekening : '.$this->nomor.'</h2>';
-        echo '<h2>Saldo : '.$this->saldo.'</h2>';
+        echo '<h3>Nomor Rekening : '.$this->nomor.'</h3>';
+        echo '<h3>Saldo : '.$this->saldo.'</h3>';
     }
 }
-$ac1 = new Account_bank('C001',300,'Ahmad');
-$ac1->deposit(10);
-$ac1->cetak();
