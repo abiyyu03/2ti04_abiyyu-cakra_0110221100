@@ -26,7 +26,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Praktikum 03 - Form Siswa</h1>
+            <h1 class="m-0">Praktikum 04 - Data Lingkaran</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -45,18 +45,19 @@
         <div class="card">
             <div class="card-body">
                 <?php
-                    require_once 'libfungsi.php';
-                    $nilai = 90;
+                    require_once 'class_lingkaran.php';
 
-                    $nama = data_diri('Abiyyu Cakra');
-                    $grade = grade($nilai);
-                    $kelulusan = kelulusan($nilai);
-                    $predikat = predikat();
+                    echo "Nilai PHI : " . Lingkaran::PHI;
+
+                    $lingkar1 = new Lingkaran(10);
+                    $lingkar2 = new Lingkaran(4);
+
+                    echo "<br>Luas Lingkaran I : ".$lingkar1->getLuas();
+                    echo "<br>Luas Lingkaran II : ".$lingkar2->getLuas();
+
+                    echo "<br>Keliling Lingkaran I : ".$lingkar1->getKeliling();
+                    echo "<br>Keliling Lingkaran II : ".$lingkar2->getKeliling();
                 ?>
-              <p>Nama : <?= $nama ?></p>
-              <p>Grade : <?= $grade; ?></p>
-              <p>Status : <?= $kelulusan; ?></p>
-              <p>Predikat : <?= $predikat; ?></p>
             </div>
         </div>
       </div>

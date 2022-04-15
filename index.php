@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- head -->
-<?php require_once '../layout/header-inside.php';?>
+<?php require_once 'layout/header.php';?>
 
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -12,11 +12,11 @@
   </div>
 
   <!-- Navbar -->
-  <?php require_once '../layout/navbar.php';?>
+  <?php require_once 'layout/navbar.php';?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <?php require_once '../layout/sidebar-inside.php';?>
+  <?php require_once 'layout/sidebar.php';?>
   <!-- /.Main Sidebar Container -->
 
   <!-- Content Wrapper. Contains page content -->
@@ -26,7 +26,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Praktikum 03 - Form Siswa</h1>
+            <h1 class="m-0">Praktikum Pemrograman Web Semester 2</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -42,22 +42,9 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <div class="card">
-            <div class="card-body">
-                <?php
-                    require_once 'libfungsi.php';
-                    $nilai = 90;
-
-                    $nama = data_diri('Abiyyu Cakra');
-                    $grade = grade($nilai);
-                    $kelulusan = kelulusan($nilai);
-                    $predikat = predikat();
-                ?>
-              <p>Nama : <?= $nama ?></p>
-              <p>Grade : <?= $grade; ?></p>
-              <p>Status : <?= $kelulusan; ?></p>
-              <p>Predikat : <?= $predikat; ?></p>
-            </div>
+        <div class="card card-body">
+          <h4>Github : <a href="https://github.com/abiyyu03" target="_blank">@abiyyu03</a></h4>
+          <h4>Instagram : <a href="https://instagram.com/abiyyucakra03" target="_blank">@abiyyucakra03</a></h4>
         </div>
       </div>
     </section>
@@ -79,6 +66,8 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-<?php require_once '../layout/script-inside.php';?>
+<?php require_once 'layout/script.php';?>
 </body>
 </html>
+
+

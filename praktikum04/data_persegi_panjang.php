@@ -26,7 +26,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Praktikum 03 - Form Siswa</h1>
+            <h1 class="m-0">Praktikum 04 - Data Persegi Panjang</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -45,18 +45,21 @@
         <div class="card">
             <div class="card-body">
                 <?php
-                    require_once 'libfungsi.php';
-                    $nilai = 90;
+                    require_once 'class_persegi_panjang.php';
 
-                    $nama = data_diri('Abiyyu Cakra');
-                    $grade = grade($nilai);
-                    $kelulusan = kelulusan($nilai);
-                    $predikat = predikat();
+                    $persegipanjang1 = new Persegi_panjang(10,4);
+                    $persegipanjang2 = new Persegi_panjang(4,12);
+
+                    echo "Nilai Panjang 1 : " . $persegipanjang1->getPanjang();
+                    echo "<br>Nilai Lebar 1: " . $persegipanjang1->getLebar();
+                    echo "<br>Nilai Panjang 2 : " . $persegipanjang2->getPanjang();
+                    echo "<br>Nilai Lebar 2: " . $persegipanjang2->getLebar();
+
+                    echo "<br><br>Luas Persegi Panjang I : ".$persegipanjang1->getLuas();
+                    echo "<br>Luas Persegi Panjang II : ".$persegipanjang2->getLuas();
+                    echo "<br>Keliling Persegi Panjang I : ".$persegipanjang1->getKeliling();
+                    echo "<br>Keliling Persegi Panjang II : ".$persegipanjang2->getKeliling();
                 ?>
-              <p>Nama : <?= $nama ?></p>
-              <p>Grade : <?= $grade; ?></p>
-              <p>Status : <?= $kelulusan; ?></p>
-              <p>Predikat : <?= $predikat; ?></p>
             </div>
         </div>
       </div>
